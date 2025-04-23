@@ -1,0 +1,93 @@
+:root {
+  --bg-color: #f0c040;
+  --maroon: #800000;
+  --border-color: rgba(0, 0, 0, 0.3);
+  --font: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.contain {
+  background-color: #f0c040;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.main-title {
+  color: maroon;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card1 {
+  position: relative;
+  padding: 30px 20px;
+  background-color: #f0c040;
+  text-align: center;
+}
+
+/* Horizontal lines for first row only */
+.card1:nth-child(-n+3)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  width: 70%;
+  height: 1px;
+  background-color: #c88700;
+}
+
+/* Vertical lines except 3rd and 6th items */
+.card1:not(:nth-child(3)):not(:nth-child(6))::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 0;
+  height: 70%;
+  width: 1px;
+  background-color: #c88700;
+}
+
+.card1 img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.card1 h3 {
+  color: maroon;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.card1 p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card1 {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .card1:last-child {
+    border-bottom: none;
+  }
+}
